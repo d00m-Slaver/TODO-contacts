@@ -17,47 +17,56 @@ h1,h2,h3{
     justify-content: space-between;
     height: 70px;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0px 16px;
     background-color: var(--color-bg);
     box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
-
     &__left{
         display: flex;
         align-items: center;
         & .header__icon{
-            font-size:1.2rem;
             font-weight: 700;
+            & img{
+                width:18px;
+                height: 22px;
+            }
         }
         & .header__title{
-            font-size: 1.2rem;
+            margin-left: 15px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--color-accent);
         }
     }
     &__right{
-        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
         font-weight: 700;
     }
     &__groups-btn{
         width: 82px;
         height: 38px;
-        padding:0.5rem 1rem;
+        font-family: var(--font-base);
+        font-size: 14px;
         background-color: var(--color-btn-light-blue);
         color: white;
         border: none;
         border-radius: 6px;
+        cursor: pointer;
     }
 }
 
 .add-contact{
     display: flex;
     justify-content: center;
-    padding: 1rem;
-    
     .button--add{
+        margin:16px 8px;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-family: var(--font-base);
+        font-size: 14px;
         background-color: var(--color-btn-light-red);
         color: white;
         border: none;
@@ -65,14 +74,22 @@ h1,h2,h3{
         width: 100%;
         max-width: 434px;
         height: 50px;
-        margin: 16px;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
         cursor:pointer;
     }
     &__icon{
-        margin-right: 0.5rem;
+        & img{
+            width: 18px;
+            height: 18px;
+        }
     }
+}
+
+.add-contact--desktop{
+    display: none;
+}
+
+.add-contact--mobile{
+    display: flex;
 }
 
 .contacts__empty{
@@ -89,29 +106,23 @@ h1,h2,h3{
 }
 
 @media(min-width: 768px){
+    .header{
+        padding: 0% 19%;
+    }
     .header__left{
         display: flex;
         align-items: center;
     }
-
-    .add-contact{
+    .add-contact--mobile{
         display: none;
     }
-    
-    .header__groups-btn{
-        margin-left: 1rem;
+    .add-contact--desktop{
+        display: flex;
     }
-
-    .header__add-btn{
-        display: inline-flex;
-        align-items: center;
-        background-color: var(--color-accent);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-right: 1rem;
+    .add-contact{
+        .button--add{
+        width: 250px;
+        height: 38px;
+        }
     }
 }
