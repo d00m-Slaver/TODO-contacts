@@ -7,7 +7,30 @@
     <title>TODO Contacts</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+      
+      <header class="header">
+        <div class="header__left">
+          <span class="header__icon"></span>
+          <span class="header__title">Книга контактов</span>
+        </div>
+        <div class="header__right">
+          <button class="button button--primary header__groups-btn">Группы</button>
+        </div>
+      </header>
+
+      <div class="add-contact">
+        <button class="button button--add">
+          <span class="add-contact__icon"></span>
+          <span class="add-contact__text">Добавить контакт</span>
+        </button>
+      </div>
+
+      <main class="main">
+        <p class="contacts__empty">Список контактов пуст</p>
+        <ul class="contacts__list">
+
+        </ul>
+      </main>
+
   </body>
 </html>

@@ -1,7 +1,117 @@
 @import 'variables';
 
 body{
+    font-family: var(--font-base);
+    background-color: var(--color-bg);
+    color: var(--color-primary);
     margin: 0px;
-    font-family: sans-serif;
-    background: #f8f8f8;
+    padding: 0px;
+}
+
+h1,h2,h3{
+    font-family: var(--font-heading);
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-bg);
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+
+    &__left{
+        display: flex;
+        align-items: center;
+        & .header__icon{
+            font-size:1.2rem;
+            font-weight: 700;
+        }
+        & .header__title{
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+    }
+    &__right{
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    &__groups-btn{
+        width: 82px;
+        height: 38px;
+        padding:0.5rem 1rem;
+        background-color: var(--color-btn-light-blue);
+        color: white;
+        border: none;
+        border-radius: 6px;
+    }
+}
+
+.add-contact{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    
+    .button--add{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-btn-light-red);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        max-width: 434px;
+        height: 50px;
+        margin: 16px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor:pointer;
+    }
+    &__icon{
+        margin-right: 0.5rem;
+    }
+}
+
+.contacts__empty{
+    text-align: center;
+    opacity: 0.5;
+    margin-top: 2rem;
+}
+
+.contacts__list{
+    list-style:none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+@media(min-width: 768px){
+    .header__left{
+        display: flex;
+        align-items: center;
+    }
+
+    .add-contact{
+        display: none;
+    }
+    
+    .header__groups-btn{
+        margin-left: 1rem;
+    }
+
+    .header__add-btn{
+        display: inline-flex;
+        align-items: center;
+        background-color: var(--color-accent);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-right: 1rem;
+    }
 }
