@@ -39,7 +39,7 @@ h1,h2,h3{
     }
     &__right{
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         font-size: 14px;
         font-weight: 700;
@@ -107,9 +107,6 @@ h1,h2,h3{
     opacity: 0.5;
     margin-top: 2rem;
 }
-.main{
-    height: 100%;
-}
 
 .contacts__list{
     list-style:none;
@@ -120,11 +117,17 @@ h1,h2,h3{
 
 @media(min-width: 768px){
     .header{
-        padding: 0% 19%;
+        width: 100%;
+        max-width: 1160px;
+        margin: 0px auto;
+        padding: 0px 16px;
     }
     .header__left{
         display: flex;
         align-items: center;
+    }
+    .header__right{
+        margin-right: 20px;
     }
     .add-contact--mobile{
         display: none;
@@ -138,6 +141,16 @@ h1,h2,h3{
         height: 38px;
         }
     }
+    .groups-panel.desktop{
+        left: 0;
+        right: auto;
+        transform: translateX(-100%);
+        
+        &.active{
+        transform: translateX(0);
+        }
+    }
+    
 }
 
 .overlay{
@@ -154,27 +167,48 @@ h1,h2,h3{
 .groups-panel{
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 80%;
     max-width: 312px;
     height: 100%;
     background-color: var(--color-bg);
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
-    display: flex;
+    box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
+    display: none;
     flex-direction: column;
     padding: 1rem;
-    transition: right 0.3s ease;
     z-index: 20;
 
-    &.active{
-    right: 0;
+    &.mobile{
+        right: 0;
+        left: auto;
+        transform: translateX(100%);
     }
+
+    &.desktop{
+        left: 0;
+        right: auto;
+        transform: translateX(-100%);
+    }
+
+    &.active{
+        display: flex;
+        transform: translateX(0);
+        transition: transform 0.5s ease;
+
+    }
+
 
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
+    }
+
+    &__close {
+        border: none;
+        background: transparent;
+        cursor: pointer;
     }
 
     &__list{
@@ -184,7 +218,7 @@ h1,h2,h3{
         margin: 0;
         overflow-y: auto;
     
-       &__item{
+        li{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -193,29 +227,42 @@ h1,h2,h3{
         }
     }
 
-    &__action{
+    &__actions{
+        position: sticky;
+        bottom: 0;
         display: flex;
-        justify-content: space-between;
-        margin-top: 1rem;
-        
+        justify-content: center;
+        padding: 1rem 0;
+        flex-shrink: 0;
+
         button{
             padding: 0.5rem 1rem;
+            margin: 0px 8px;
             border-radius: 6px;
             border: none;
             cursor: pointer;
+            font-family: var(--font-base);
             font-weight: 700;
         }
-        
-        &__add{
-            background-color: var(--color-bg);
-            color: var(--color-btn-light-blue);
-        }
-
-        &__save{
-            background-color: var(--color-btn-light-blue);
-            color: var(--color-bg);
-        }
     }
+}
+
+.groups-panel__add{
+    background-color: var(--color-bg);
+    color: var(--color-btn-light-blue);
+    width: 104px;
+    height: 38px;
+    border: none;
+    border-radius: 6px;
+}
+
+.groups-panel__save{
+    background-color: var(--color-btn-light-blue);
+    color: var(--color-bg);
+    width: 104px;
+    height: 38px;
+    border: none;
+    border-radius: 6px;
 }
 
 
