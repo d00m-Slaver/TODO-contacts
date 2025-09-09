@@ -1,13 +1,31 @@
 interface IContact{
+    id: string;
     name: string;
     phoneNumber: string;
     group: string;
 }
 
+class Contact implements IContact {
+    
+    id: string;
+    name: string;
+    phoneNumber: string;
+    group: string;
+    
+    constructor(name: string, phoneNumber: string, group: string, id?: string){
+        this.id = id ?? crypto.randomUUID();
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.group = group;
+    }
+}
+
 export class ContactManager {
-  private contacts: IContact[] = [];
+
+  private contacts: Contact[] = [];
   private listEl: HTMLUListElement;
   private emptyEl: HTMLParagraphElement;
+  private storageKey: string = 'contacts' ;
 
   constructor(listSelector: string, emptySelector: string) {
     this.listEl = document.querySelector(listSelector) as HTMLUListElement;
@@ -16,20 +34,22 @@ export class ContactManager {
     this.render();
   }
 
-  addContact(contact: IContact): void {
-    this.contacts.push(contact);
+  addContact(name: string, phoneNumber: string, group: string, id?: string): void {
+    const newContact = new Contact(name, phoneNumber, group, id);
+    this.contacts.push(newContact);
     this.saveContacts();
     this.render();
   }
 
   private saveContacts(): void {
-    localStorage.setItem('contacts', JSON.stringify(this.contacts));
+    localStorage.setItem(this.storageKey, JSON.stringify(this.contacts));
   }
 
   private loadContacts(): void {
-    const localData = localStorage.getItem('contacts');
+    const localData = localStorage.getItem(this.storageKey);
     if (localData) {
-      this.contacts = JSON.parse(localData);
+      const parsed = JSON.parse(localData) as IContact[];
+      this.contacts = parsed.map(c=> new Contact(c.name, c.phoneNumber, c.group, c.id));
     }
   }
 
