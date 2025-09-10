@@ -1,3 +1,9 @@
-import './scripts/groups';
-import './scripts/contacts'
+import './classes/Group';
+import './managers/GroupManager';
+import './classes/Contact';
+import './managers/ContactManager';
+import './interfaces/IGroup';
+import './interfaces/IContact';
+import './scripts/contacts-functions'
 import './scripts/groups-functions';
+import "./scripts/groups-render";

@@ -1,24 +1,5 @@
-interface IContact{
-    id: string;
-    name: string;
-    phoneNumber: string;
-    group: string;
-}
-
-class Contact implements IContact {
-    
-    id: string;
-    name: string;
-    phoneNumber: string;
-    group: string;
-    
-    constructor(name: string, phoneNumber: string, group: string, id?: string){
-        this.id = id ?? crypto.randomUUID();
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.group = group;
-    }
-}
+import type { IContact } from "../interfaces/IContact";
+import { Contact } from "../classes/Contact";
 
 export class ContactManager {
 
@@ -49,7 +30,7 @@ export class ContactManager {
     const localData = localStorage.getItem(this.storageKey);
     if (localData) {
       const parsed = JSON.parse(localData) as IContact[];
-      this.contacts = parsed.map(c=> new Contact(c.name, c.phoneNumber, c.group, c.id));
+      this.contacts = parsed.map(c=> new Contact(c.name, c.phone, c.groupId, c.id));
     }
   }
 
@@ -64,7 +45,7 @@ export class ContactManager {
     this.emptyEl.style.display = 'none';
     this.contacts.forEach(contact => {
       const li = document.createElement('li');
-      li.textContent = `${contact.name} — ${contact.phoneNumber} [${contact.group}]`;
+      li.textContent = `${contact.name} — ${contact.phone} [${contact.groupId}]`;
       this.listEl.appendChild(li);
     });
   }

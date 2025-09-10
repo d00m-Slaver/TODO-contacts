@@ -31,25 +31,54 @@
       </div>
 
       <main class="main">
-        <p class="contacts__empty">Список контактов пуст</p>
-        <ul class="contacts__list">
-
-        </ul>
+        <div id="groupsContainer" class="groups-container"></div>
       </main>
 
       <div class="overlay"></div>
-
       <div class="groups-panel">
         <div class="groups-panel__header">
-          <h2>Группы</h2>
-          <button class="groups-panel__close"><img src=""/></button>
+          <h3>Группы контактов</h3>
+          <button class="groups-panel__close"><img src="/src/assets/images/x.png"/></button>
         </div>
-        <ul class="groups-panel__list">
-        </ul>
+        <ul class="groups-panel__list" id="groupsList"></ul>
         <div class="groups-panel__actions">
-          <button class="groups-panel__add">Добавить</button>
+          <button class="groups-panel__add" id="addGroupBtn">Добавить</button>
           <button class="groups-panel__save">Сохранить</button>
         </div>
       </div>
+      <div class="contacts-panel">
+  <div class="contacts-panel__header">
+    <h3>Добавить контакт</h3>
+    <button class="contacts-panel__close">
+      <img src="/src/assets/images/x.png" alt="Закрыть"/>
+    </button>
+  </div>
+  <div class="contacts-panel__form">
+    <input type="text" class="contact-input contact-input--name" placeholder="Имя" required />
+    <input type="text" class="contact-input contact-input--phone" placeholder="Телефон" required/>
+    <div class="contact-select">
+      <button class="contact-select__toggle">
+        <span>Выберите группу</span>
+        <img src="/src/assets/images/down.png" alt="▼" />
+      </button>
+      <ul class="contact-select__list"></ul>
+    </div>
+  </div>
+  <div class="contacts-panel__actions">
+    <button class="contacts-panel__save">Сохранить</button>
+  </div>
+</div>ц
+      <div id="toast-overlay" class="toast-overlay">
+        <div class="toast-box">
+          <button class="toast-close"><img src="./src/assets/images/x.png" alt="Закрыть"/></button>
+          <h3 class="toast-title"></h3>
+          <p class="toast-message"></p>
+          <div class="toast-actions">
+            <button class="toast-btn toast-yes">Да</button>
+            <button class="toast-btn toast-no">Нет</button> 
+          </div>
+        </div>
+      </div>
   </body>
+  <script type="module" src="/src/main.ts"></script>
 </html>
