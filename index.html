@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO Contacts</title>
+    <script type="module" crossorigin src="/assets/index-VmXnFSfN.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C5VhGXLv.css">
+  </head>
+  <body>
+      <header class="header">
+        <div class="header__left">
+          <span class="header__icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAsCAYAAAANUxr1AAAAAXNSR0IArs4c6QAAAexJREFUWAntmO1xgzAMhjVCRugIHYER8jMB7soIHaEjdAOyQbsBI2QERuB/W+ze6yQGAo4lG2iuF9+5of7SY1mWbBMhFfqJcvVBuWooU3qFfKT069nIHv0BTKbqFSCGE03btxGLKcjaQw8GGqoWzEcryw101k6qatrqzTT1TKW5TvhAWLalkxAIa1xRpkuCOpfIQ/OoRjJgz1aF6+yuoWGPZTb3BqQfQF4T8TYYr7PPDuLq44B0Sfl3Yv0XwsFwJ8nhAoEaA+LyWwYsMC6GAbWvLhZbnv4UQWOLOyHEcNMpLsqWTQwET85NafsuHl/cwRmlJyjRVrpLxR0wa25aRUOZarg8QQc/sYawBPt72mXWJvSLU1M7nQSfz4M01EGVBOFIhd6Y7z/y1DLfYifAuNHEaYghQAKDtoFAuJ3gBuG6oaAu7I4nAkLY6Ed3p1WfKxDP0EeiJX7j9mCPGT6Q6/pc4LGZQNW1DPH/uKpzNMVqtMP1JDLBLXDsyguUqs9IlK47J7Z5gThhohN5+4tzaPMCYZC50gPIp8n/qSE802BmiOqhea+3ZoxTuLkdmFm+gePQ5moTdMycS/jUOA+gKa30y4jjzvsdlv4mBE5O0Fsa5DK+8WUxrxWXgeb6tc7VaMo8oocfP+Ogarwt/QLD9Uh0dWflRgAAAABJRU5ErkJggg==" alt="Контакты"/></span>
+          <span class="header__title">Книга контактов</span>
+        </div>
+        <div class="header__right">
+          <div class="add-contact add-contact--desktop">
+            <button class="button button--add header__add-btn">
+              <span class="add-contact__text">Добавить контакт</span>
+              <span class="add-contact__icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAJVJREFUWAntlVEKwCAMQz2aR/NmO1qGoCD5iXYoMiKIStxanyWm5GYCJmACawQAZACl9bz29YbdLRG0VjaEWPulE1K8TMiEFAGlH60hMr1ufjw+3YQA1DnrvI6bJ51+iPtpGjfPGxMa3ylG39fnrkwVdNWJYvw6ZoLN7HFCipIJmZAioPQba2g0z/g7pU5u3QRM4K8EXgR6Uu/bZnB7AAAAAElFTkSuQmCC" alt="Плюс"/></span>
+            </button>
+          </div>
+          <button class="button button--primary header__groups-btn">Группы</button>
+        </div>
+      </header>
+
+      <div class="add-contact add-contact--mobile">
+        <button class="button button--add">
+          <span class="add-contact__text">Добавить контакт</span>
+          <span class="add-contact__icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAJVJREFUWAntlVEKwCAMQz2aR/NmO1qGoCD5iXYoMiKIStxanyWm5GYCJmACawQAZACl9bz29YbdLRG0VjaEWPulE1K8TMiEFAGlH60hMr1ufjw+3YQA1DnrvI6bJ51+iPtpGjfPGxMa3ylG39fnrkwVdNWJYvw6ZoLN7HFCipIJmZAioPQba2g0z/g7pU5u3QRM4K8EXgR6Uu/bZnB7AAAAAElFTkSuQmCC" alt="Плюс"/></span>
+        </button>
+      </div>
+
+      <main class="main">
+        <div id="groupsContainer" class="groups-container"></div>
+      </main>
+
+      <div class="overlay"></div>
+      <div class="groups-panel">
+        <div class="groups-panel__header">
+          <h3>Группы контактов</h3>
+          <button class="groups-panel__close"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg=="/></button>
+        </div>
+        <ul class="groups-panel__list" id="groupsList"></ul>
+        <div class="groups-panel__actions">
+          <button class="groups-panel__add" id="addGroupBtn">Добавить</button>
+          <button class="groups-panel__save">Сохранить</button>
+        </div>
+      </div>
+      <div class="contacts-panel">
+  <div class="contacts-panel__header">
+    <h3>Добавить контакт</h3>
+    <button class="contacts-panel__close">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/>
+    </button>
+  </div>
+  <div class="contacts-panel__form">
+    <input type="text" class="contact-input contact-input--name" placeholder="Имя" required />
+    <input type="text" class="contact-input contact-input--phone" placeholder="Телефон" required/>
+    <div class="contact-select">
+      <button class="contact-select__toggle">
+        <span>Выберите группу</span>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAQCAYAAADj5tSrAAAAAXNSR0IArs4c6QAAAJJJREFUOBG109sNgCAMBdA7iiO4iSPoJrqJIzqCph/XAKYpbZGfhlcPhALUba674d6k7dwB3ABWbUHnuBz0AnC26wkIkoEIMM8LyQQHy+i9UQsw18IbbUlIAw4CjFGoG4hCbsALhYFeKA1YkDym/ANWD+PnkZnIiloxMDFjGOABLCgNWNAwQIOGAy30G0BIytfVHvTud91DBRTDAAAAAElFTkSuQmCC" alt="▼" />
+      </button>
+      <ul class="contact-select__list"></ul>
+    </div>
+  </div>
+  <div class="contacts-panel__actions">
+    <button class="contacts-panel__save">Сохранить</button>
+  </div>
+</div>
+      <div id="toast-overlay" class="toast-overlay">
+        <div class="toast-box">
+          <button class="toast-close"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/></button>
+          <h3 class="toast-title"></h3>
+          <p class="toast-message"></p>
+          <div class="toast-actions">
+            <button class="toast-btn toast-yes">Да</button>
+            <button class="toast-btn toast-no">Нет</button> 
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
