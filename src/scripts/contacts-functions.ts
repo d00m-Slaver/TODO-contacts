@@ -5,7 +5,7 @@ import { renderGroups } from "./groups-render";
 
 const contactPanel = document.querySelector('.contacts-panel') as HTMLDivElement;
 const overlay = document.querySelector('.overlay') as HTMLDivElement;
-const openBtn = document.querySelector('.header__add-btn') as HTMLButtonElement;
+const openBtn = document.querySelector('.button--add') as HTMLButtonElement;
 const closeBtn = contactPanel.querySelector('.contacts-panel__close') as HTMLButtonElement;
 
 const inputName = contactPanel.querySelector('.contact-input--name') as HTMLInputElement;
@@ -43,6 +43,11 @@ function closeContactPanel() {
   selectedGroupId = null;
   editingContact = null;
 }
+window.addEventListener('resize',()=>{
+    if(!contactPanel.classList.contains('active')){
+        updatePanelMode();
+    }
+});
 
 function updatePanelMode() {
   if(window.innerWidth>=768){
@@ -124,3 +129,12 @@ export function openEditContactPanel(contact: Contact, groupId: string) {
     selectToggle.querySelector('span')!.textContent = group.name;
   }
 }
+
+closeBtn.addEventListener('click', closeContactPanel);
+overlay.addEventListener('click', closeContactPanel);
+
+window.addEventListener('resize', () => {
+  if (contactPanel.classList.contains('active')) {
+    updatePanelMode();
+  }
+});

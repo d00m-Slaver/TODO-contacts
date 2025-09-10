@@ -47,6 +47,8 @@ function updatePanelMode(){
 }
 
 addGroupBtn.addEventListener('click', ()=>{
+    const emptyLi = groupsList.querySelector('.groups__empty');
+    if(emptyLi) emptyLi.remove();
     const li = document.createElement('li');
     li.innerHTML = `<input name="groupName" type="text" class="groups-input" placeholder="Введите название группы"/>
         <button class="delete-btn" disabled><img src="${trashIcon}" alt="Удалить"/></button>`;
@@ -70,8 +72,9 @@ function renderGroupsPanel(): void{
     groupsList.innerHTML = '';
 
     const groups: Group[] = groupManager.getGroups();
+    const newGroupInputs = groupsList.querySelectorAll('.groups-input');
 
-    if(groups.length === 0){
+    if(groups.length === 0 && newGroupInputs.length === 0){
         const emptyLi = document.createElement('li');
         emptyLi.textContent = 'Нет доступных групп';
         emptyLi.classList.add('groups__empty')

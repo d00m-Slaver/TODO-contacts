@@ -407,7 +407,7 @@ h1,h2,h3{
   z-index: 20;
   opacity: 0;
   visibility: hidden;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 
   &.mobile {
     right: 0;
@@ -422,7 +422,14 @@ h1,h2,h3{
   &.active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
+
+    &.mobile {
+      transform: translateX(0);
+    }
+
+    &.desktop {
+      transform: translateX(0);
+    }
   }
 
   &__header {
@@ -432,17 +439,19 @@ h1,h2,h3{
     margin-bottom: 1rem;
   }
 
+  &__close {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
     gap: 12px;
     flex-grow: 1;
   }
-    &__close {
-        border: none;
-        background: transparent;
-        cursor: pointer;
-    }
+
   .contact-input {
     height: 38px;
     padding: 0 10px;
@@ -468,10 +477,12 @@ h1,h2,h3{
       padding: 0 10px;
       cursor: pointer;
     }
+
     img {
-        width: 12px;
-        height: 7px;
+      width: 12px;
+      height: 7px;
     }
+
     &__list {
       display: none;
       position: absolute;
@@ -480,7 +491,7 @@ h1,h2,h3{
       right: 0;
       background: white;
       border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       list-style: none;
       padding: 5px 0;
       margin: 0;
@@ -501,19 +512,22 @@ h1,h2,h3{
   }
 
   &__actions {
-    padding-top: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    gap: 8px;
+    padding-top: 1rem;
 
     button {
-      padding: 0.5rem 1rem;
+      width: 102px;
+      height: 48px;
       border-radius: 6px;
       border: none;
       cursor: pointer;
       background: var(--color-btn-light-blue);
       color: white;
       font-family: var(--font-base);
-      font-weight: 700;
+      font-weight: 400;
     }
   }
 }
@@ -532,4 +546,172 @@ h1,h2,h3{
   color: red;
   font-size: 12px;
   margin-top: 4px;
+}
+
+.contacts-panel {
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+}
+
+
+.contact-input,
+.groups-input,
+.input {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  font-family: var(--font-base);
+  background-color: #f4f4f4;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  outline: none;
+}
+
+.contact-input:hover,
+.groups-input:hover,
+.input:hover {
+  border-color: var(--color-btn-light-blue);
+}
+
+.contact-input:focus,
+.groups-input:focus,
+.input:focus {
+  border-color: var(--color-btn-light-blue);
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  background-color: #f4f4f4;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+// Стили для списка групп
+.groups-list {
+  width: 100%;
+  max-width: 1160px; // совпадает с хедером
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e2e2;
+    background-color: #fff;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #f4f4f4;
+    }
+
+    .group-name {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .group-actions {
+      display: flex;
+      gap: 8px;
+
+      button {
+        height: 32px;
+        width: 32px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: var(--color-btn-light-blue);
+        color: white;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Стили для списка контактов
+.contacts-list {
+  width: 100%;
+  max-width: 1160px; // совпадает с хедером
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e2e2;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-bottom: 8px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #f4f4f4;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+
+      .contact-name {
+        font-weight: 700;
+        color: var(--color-primary);
+      }
+
+      .contact-phone {
+        font-size: 14px;
+        color: #555;
+      }
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 8px;
+
+      button {
+        height: 32px;
+        width: 32px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: var(--color-btn-light-blue);
+        color: white;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Мобильная адаптация
+@media(max-width: 767px) {
+  .groups-list li,
+  .contacts-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+
+    .contact-info {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .contact-phone {
+        order: 2;
+      }
+    }
+
+    .contact-actions {
+      margin-top: 4px;
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
 }
