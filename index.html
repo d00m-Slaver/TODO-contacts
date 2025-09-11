@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TODO Contacts</title>
-    <script type="module" crossorigin src="/assets/index-VmXnFSfN.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C5VhGXLv.css">
+    <script type="module" crossorigin src="/todo-app/assets/index-CEBbZsik.js"></script>
+    <link rel="stylesheet" crossorigin href="/todo-app/assets/index-YfhKR21V.css">
   </head>
   <body>
       <header class="header">
@@ -35,7 +35,6 @@
         <div id="groupsContainer" class="groups-container"></div>
       </main>
 
-      <div class="overlay"></div>
       <div class="groups-panel">
         <div class="groups-panel__header">
           <h3>Группы контактов</h3>
@@ -48,27 +47,27 @@
         </div>
       </div>
       <div class="contacts-panel">
-  <div class="contacts-panel__header">
-    <h3>Добавить контакт</h3>
-    <button class="contacts-panel__close">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/>
-    </button>
-  </div>
-  <div class="contacts-panel__form">
-    <input type="text" class="contact-input contact-input--name" placeholder="Имя" required />
-    <input type="text" class="contact-input contact-input--phone" placeholder="Телефон" required/>
-    <div class="contact-select">
-      <button class="contact-select__toggle">
-        <span>Выберите группу</span>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAQCAYAAADj5tSrAAAAAXNSR0IArs4c6QAAAJJJREFUOBG109sNgCAMBdA7iiO4iSPoJrqJIzqCph/XAKYpbZGfhlcPhALUba674d6k7dwB3ABWbUHnuBz0AnC26wkIkoEIMM8LyQQHy+i9UQsw18IbbUlIAw4CjFGoG4hCbsALhYFeKA1YkDym/ANWD+PnkZnIiloxMDFjGOABLCgNWNAwQIOGAy30G0BIytfVHvTud91DBRTDAAAAAElFTkSuQmCC" alt="▼" />
-      </button>
-      <ul class="contact-select__list"></ul>
-    </div>
-  </div>
-  <div class="contacts-panel__actions">
-    <button class="contacts-panel__save">Сохранить</button>
-  </div>
-</div>
+        <div class="contacts-panel__header">
+          <h3>Добавить контакт</h3>
+          <button class="contacts-panel__close">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/>
+          </button>
+        </div>
+        <div class="contacts-panel__form">
+          <input type="text" class="contact-input contact-input--name" placeholder="Имя" required />
+          <input type="text" class="contact-input contact-input--phone" placeholder="Телефон" required/>
+          <div class="contact-select">
+            <button class="contact-select__toggle">
+              <span>Выберите группу</span>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAQCAYAAADj5tSrAAAAAXNSR0IArs4c6QAAAJJJREFUOBG109sNgCAMBdA7iiO4iSPoJrqJIzqCph/XAKYpbZGfhlcPhALUba674d6k7dwB3ABWbUHnuBz0AnC26wkIkoEIMM8LyQQHy+i9UQsw18IbbUlIAw4CjFGoG4hCbsALhYFeKA1YkDym/ANWD+PnkZnIiloxMDFjGOABLCgNWNAwQIOGAy30G0BIytfVHvTud91DBRTDAAAAAElFTkSuQmCC" alt="▼" />
+            </button>
+            <ul class="contact-select__list"></ul>
+          </div>
+        </div>
+        <div class="contacts-panel__actions">
+          <button class="contacts-panel__save">Сохранить</button>
+        </div>
+      </div>
       <div id="toast-overlay" class="toast-overlay">
         <div class="toast-box">
           <button class="toast-close"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/></button>
@@ -80,5 +79,7 @@
           </div>
         </div>
       </div>
+
+      <div class="overlay"></div>
   </body>
 </html>
