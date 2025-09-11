@@ -6,4 +6,5 @@ import './interfaces/IGroup';
 import './interfaces/IContact';
 import './scripts/contacts-functions'
 import './scripts/groups-functions';
-import "./scripts/groups-render";
+import './scripts/groups-render';
+import './scripts/main-scripts';

@@ -2,6 +2,7 @@ import trashIcon from '../assets/images/trash-can.png';
 import { Group } from '../classes/Group';
 import { groupManager } from "../managers/GroupManager";
 import { showToast } from './toast';
+import { updatePanelMode } from './main-scripts';
 
 const openGroupsPanelBtn = document.querySelector('.header__groups-btn') as HTMLButtonElement;
 const closeGroupsPanelBtn = document.querySelector('.groups-panel__close') as HTMLButtonElement;
@@ -27,23 +28,6 @@ function openGroupPanel() {
 function closeGroupPanel() {
     groupsPanel.classList.remove('active');
     overlay.style.display = 'none';
-}
-
-window.addEventListener('resize',()=>{
-    if(!groupsPanel.classList.contains('active')){
-        updatePanelMode();
-    }
-});
-
-function updatePanelMode(){
-    if(window.innerWidth>=768){
-        groupsPanel.classList.add('desktop');
-        groupsPanel.classList.remove('mobile');
-    }   
-    else{
-        groupsPanel.classList.add('mobile');
-        groupsPanel.classList.remove('desktop');
-    }
 }
 
 addGroupBtn.addEventListener('click', ()=>{

@@ -2,10 +2,12 @@ import { groupManager } from "../managers/GroupManager";
 import { Contact } from "../classes/Contact";
 import IMask from "imask";
 import { renderGroups } from "./groups-render";
+import { updatePanelMode } from './main-scripts';
 
 const contactPanel = document.querySelector('.contacts-panel') as HTMLDivElement;
 const overlay = document.querySelector('.overlay') as HTMLDivElement;
-const openBtn = document.querySelector('.button--add') as HTMLButtonElement;
+const openBtnMobile = document.querySelector('.add-contact--desktop') as HTMLButtonElement;
+const openBtnDesktop = document.querySelector('.add-contact--mobile') as HTMLButtonElement;
 const closeBtn = contactPanel.querySelector('.contacts-panel__close') as HTMLButtonElement;
 
 const inputName = contactPanel.querySelector('.contact-input--name') as HTMLInputElement;
@@ -23,14 +25,16 @@ IMask(inputPhone, {
   mask: '+{7}(000)000-00-00',
 });
 
-openBtn.addEventListener('click', () => {
+openBtnMobile.addEventListener('click', openContactsPanel);
+openBtnDesktop.addEventListener('click', openContactsPanel)
+
+function openContactsPanel(): void{
   editingContact = null;
   updatePanelMode();
   contactPanel.classList.add('active');
   overlay.style.display = 'block';
   renderGroupsInSelect();
-});
-
+}
 closeBtn.addEventListener('click', closeContactPanel);
 overlay.addEventListener('click', closeContactPanel);
 
@@ -42,21 +46,6 @@ function closeContactPanel() {
   selectToggle.querySelector('span')!.textContent = "Выберите группу";
   selectedGroupId = null;
   editingContact = null;
-}
-window.addEventListener('resize',()=>{
-    if(!contactPanel.classList.contains('active')){
-        updatePanelMode();
-    }
-});
-
-function updatePanelMode() {
-  if(window.innerWidth>=768){
-    contactPanel.classList.add('desktop');
-    contactPanel.classList.remove('mobile');
-  } else {
-    contactPanel.classList.add('mobile');
-    contactPanel.classList.remove('desktop');
-  }
 }
 
 function renderGroupsInSelect() {
