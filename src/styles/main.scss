@@ -1,80 +1,99 @@
-@import 'variables';
+@forward 'variables';
 
 body{
-    font-family: var(--font-base);
-    background-color: var(--color-bg);
-    color: var(--color-primary);
-    margin: 0px;
-    padding: 0px;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  margin: 0px;
+  padding: 0px;
 }
 
 h1,h2,h3{
-    font-family: var(--font-heading);
+  font-family: var(--font-heading);
+}
+
+p, h1, h2, h3, span {
+    -webkit-user-select: none; 
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    user-select: none;         
 }
 
 .header{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+  align-items: center;
+  background-color: var(--color-white);
+  
+  &__margin{
+    width: 100%;
+    max-width: 375px;
     display: flex;
     justify-content: space-between;
-    height: 70px;
+  }
+  &__left{
+    display: flex;
     align-items: center;
-    padding: 0px 16px;
-    background-color: var(--color-bg);
-    &__left{
-        display: flex;
-        align-items: center;
-        & .header__icon{
-            font-weight: 700;
-            & img{
-                width:18px;
-                height: 22px;
-            }
-        }
-        & .header__title{
-            margin-left: 15px;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--color-accent);
-        }
-    }
-    &__right{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        font-size: 14px;
+      .header__icon{
         font-weight: 700;
-    }
-    &__groups-btn{
-        width: 82px;
-        height: 38px;
-        font-family: var(--font-base);
-        font-size: 14px;
-        background-color: var(--color-btn-light-blue);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-    }
+        & img{
+          margin: 0px 16px;
+          width: 18px;
+          height: 22px;
+        }
+      }
+      .header__title{
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--color-accent);
+      }
+  }
+  &__right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  &__groups-btn{
+    width: 82px;
+    height: 38px;
+    font-family: var(--font-base);
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0px 16px;
+    background-color: var(--color-btn-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
 }
 
 .add-contact{
+  display: flex;
+  justify-content: center;
+  .button--add{
+    margin:16px 8px;
     display: flex;
     justify-content: center;
-    .button--add{
-        margin:16px 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: var(--font-base);
-        font-size: 14px;
-        background-color: var(--color-btn-light-red);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        width: 100%;
-        max-width: 434px;
-        height: 50px;
-        cursor:pointer;
-    }
+    align-items: center;
+    font-family: var(--font-base);
+    font-size: 14px;
+    font-weight: 700;
+    background-color: var(--color-btn-light-red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 343px;
+    height: 50px;
+    cursor:pointer;
+  }
     &__icon{
         & img{
             margin-top: 5px;
@@ -92,16 +111,6 @@ h1,h2,h3{
     display: flex;
 }
 
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: calc(100vh - 70px);
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
 .contacts__empty{
     text-align: center;
     opacity: 0.5;
@@ -116,41 +125,44 @@ h1,h2,h3{
 }
 
 @media(min-width: 768px){
-    .header{
-        width: 100%;
-        max-width: 1160px;
-        margin: 0px auto;
-        padding: 0px 16px;
+  .header{
+      width: 100%;
+    &__margin{
+      width: 100%;
+      max-width: 1160px;
+      margin: 0px auto;
     }
-    .header__left{
-        display: flex;
-        align-items: center;
+
+    &__left{
+      display: flex;
+      align-items: center;
     }
-    .header__right{
-        margin-right: 20px;
+  }
+
+  .add-contact{
+    &--mobile{
+      display: none;
     }
-    .add-contact--mobile{
-        display: none;
+    &--desktop{
+       display: flex;
     }
-    .add-contact--desktop{
-        display: flex;
+    .button--add{
+      width: 178px;
+      height: 38px;
     }
-    .add-contact{
-        .button--add{
-        width: 250px;
-        height: 38px;
-        }
-    }
-    .groups-panel.desktop{
-        left: 0;
-        right: auto;
-        transform: translateX(-100%);
-        
-        &.active{
-        transform: translateX(0);
-        }
-    }
+  }
+  
+  .groups-panel.desktop{
+    left: 0;
+    right: auto;
+    transform: translateX(-100%);     
     
+    &.active{
+      transform: translateX(0);
+    }
+  }
+
+
 }
 
 .overlay{
@@ -171,12 +183,12 @@ h1,h2,h3{
     right: 0;
     width: 80%;
     height: 100%;
-    max-width: 312px;
-    background-color: var(--color-bg);
+    max-width: 264px;
+    background-color: var(--color-white);
     box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 24px;
     z-index: 20;
     opacity: 0;
     visibility: hidden;
@@ -204,16 +216,22 @@ h1,h2,h3{
 
 
     &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     &__close {
         border: none;
         background: transparent;
         cursor: pointer;
+        
+        img{
+          width: 24px;
+          height: 24px;
+        }
     }
 
     &__list{
@@ -253,8 +271,8 @@ h1,h2,h3{
 }
 
 .groups-panel__add{
-    background-color: var(--color-bg);
-    color: var(--color-btn-light-blue);
+    background-color: var(--color-white);
+    color: var(--color-btn-blue);
     width: 104px;
     height: 38px;
     border: none;
@@ -262,8 +280,8 @@ h1,h2,h3{
 }
 
 .groups-panel__save{
-    background-color: var(--color-btn-light-blue);
-    color: var(--color-bg);
+    background-color: var(--color-btn-blue);
+    color: var(--color-white);
     width: 104px;
     height: 38px;
     border: none;
@@ -277,6 +295,7 @@ h1,h2,h3{
     border: none;
     padding: 0px 6px;
     border-radius: 6px;
+    border: none;
     background-color: #f2f2f2;
     font-family: var(--color-primary);
     outline: none;
@@ -329,7 +348,7 @@ h1,h2,h3{
 }
 
 .toast-box{
-    background-color: var(--color-bg);
+    background-color: var(--color-white);
     border-radius: 6px;
     padding: 16px;
     width: 393px;
@@ -354,7 +373,7 @@ h1,h2,h3{
 }
 
 .toast-title{
-    font-weight: 700;
+    font-weight: 700; 
     margin-bottom: 8px;
     font-family: var(--font-base);
 }
@@ -383,27 +402,27 @@ h1,h2,h3{
 }
 
 .toast-yes{
-    background-color: var(--color-btn-light-blue);
+    background-color: var(--color-btn-blue);
     color: white;
     
 }
 
 .toast-no{
     background-color: #cee0ff;
-    color: var(--color-btn-light-blue);
+    color: var(--color-btn-blue);
 }
 
 .contacts-panel {
   position: fixed;
   top: 0;
   width: 80%;
-  max-width: 312px;
+  max-width: 264px;
   height: 100%;
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
   box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 24px;
   z-index: 20;
   opacity: 0;
   visibility: hidden;
@@ -437,19 +456,28 @@ h1,h2,h3{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   &__close {
     border: none;
     background: transparent;
     cursor: pointer;
+    
+    img{
+      width: 24px;
+      height: 24px;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    flex-grow: 1;
+    flex-grow: 1;    
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
   }
 
   .contact-input {
@@ -512,22 +540,25 @@ h1,h2,h3{
   }
 
   &__actions {
+    position: sticky;
+    bottom: 0;
     display: flex;
     justify-content: flex-end;
     flex-shrink: 0;
+    padding: 1rem;
     gap: 8px;
-    padding-top: 1rem;
 
-    button {
-      width: 102px;
-      height: 48px;
+    button {  
+      width: 104px;
+      height: 38px;
       border-radius: 6px;
       border: none;
       cursor: pointer;
-      background: var(--color-btn-light-blue);
+      background: var(--color-btn-blue);
       color: white;
       font-family: var(--font-base);
       font-weight: 400;
+      font-size: 14px;
     }
   }
 }
@@ -568,30 +599,20 @@ h1,h2,h3{
 .contact-input:hover,
 .groups-input:hover,
 .input:hover {
-  border-color: var(--color-btn-light-blue);
+  border-color: var(--color-btn-blue);
 }
 
 .contact-input:focus,
 .groups-input:focus,
 .input:focus {
-  border-color: var(--color-btn-light-blue);
+  border-color: var(--color-btn-blue);
   box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
   background-color: #f4f4f4;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-// Стили для списка групп
 .groups-list {
   width: 100%;
-  max-width: 1160px; // совпадает с хедером
+  max-width: 1160px;
   list-style: none;
   padding: 0;
   margin: 0 0 1rem 0;
@@ -626,7 +647,7 @@ h1,h2,h3{
         border: none;
         border-radius: 6px;
         cursor: pointer;
-        background-color: var(--color-btn-light-blue);
+        background-color: var(--color-btn-blue);
         color: white;
         font-size: 14px;
       }
@@ -634,10 +655,9 @@ h1,h2,h3{
   }
 }
 
-// Стили для списка контактов
 .contacts-list {
   width: 100%;
-  max-width: 1160px; // совпадает с хедером
+  max-width: 1160px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -682,7 +702,7 @@ h1,h2,h3{
         border: none;
         border-radius: 6px;
         cursor: pointer;
-        background-color: var(--color-btn-light-blue);
+        background-color: var(--color-btn-blue);
         color: white;
         font-size: 14px;
       }
@@ -690,27 +710,124 @@ h1,h2,h3{
   }
 }
 
-@media(max-width: 767px) {
-  .groups-list li,
-  .contacts-list li {
+// @media(max-width: 767px) {
+//   .groups-list li,
+//   .contacts-list li {
+//     flex-direction: column;
+//     align-items: flex-start;
+//     padding: 8px 12px;
+
+//     .contact-info {
+//       flex-direction: row;
+//       justify-content: space-between;
+//       width: 100%;
+
+//       .contact-phone {
+//         order: 2;
+//       }
+//     }
+
+//     .contact-actions {
+//       margin-top: 4px;
+//       width: 100%;
+//       justify-content: flex-end;
+//     }
+//   }
+// }
+
+.main{
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 12px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 16px;
+    height: calc(100vh - 70px);
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+}
 
-    .contact-info {
-      flex-direction: row;
-      justify-content: space-between;
-      width: 100%;
-
-      .contact-phone {
-        order: 2;
-      }
+.groups-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 343px;
+  gap: 16px;
+}
+.group{
+  background-color: var(--color-white);
+  border-radius: 6px;
+  font-family: var(--font-base);
+  width: 100%;
+  max-width: 343px;
+  min-height: 70px;  
+  .group__header{
+    margin: 0px auto;
+    padding: 24px;
+    max-width: 343px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    .group__title{
+       transition: color 0.3s ease;
     }
+  }
 
-    .contact-actions {
-      margin-top: 4px;
-      width: 100%;
-      justify-content: flex-end;
-    }
+}
+
+.contact{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-weight: 400;
+  width: 295px;
+  height: 77px;
+  padding: 24px;
+  background-color: var(--color-white);
+
+  .contact__name{
+    width: 100%;
+    height: 39px;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .contact__phone{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: center;
+    height: 38px;
+    font-size: 18px;
+    font-weight: 400;
+    width: calc(100% - 92px);
+  }
+
+  button{
+    align-self: flex-end;
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    margin: 0px 4px 0px 4px;
+    cursor: pointer;
+  }
+}
+
+.group__contacts{
+    width: 295px;
+  .group__empty{
+    text-align: center;
+    margin: 0px auto;
+    padding: 24px;
+    width: 100%;
+    height: 39px;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
   }
 }

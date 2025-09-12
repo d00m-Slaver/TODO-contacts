@@ -84,6 +84,7 @@ export function renderGroups(): void {
       const isVisible = contactsWrapper.style.display === "block";
       contactsWrapper.style.display = isVisible ? "none" : "block";
       arrow.innerHTML = isVisible ? "&#9662;" : "&#9652;";
+      title.style.color = isVisible ? "#000000" : "#005BFE";
     });
 
     groupBlock.append(groupHeader, contactsWrapper);

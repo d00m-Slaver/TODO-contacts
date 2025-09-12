@@ -22,7 +22,15 @@ let selectedGroupId: string | null = null;
 let editingContact: Contact | null = null;
 
 IMask(inputPhone, {
-  mask: '+{7}(000)000-00-00',
+  mask: [
+    {
+      mask: '+{7}(000)000-00-00',
+    }
+    //,
+    // {
+    //   mask: '+{375}(00)000-00-00',
+    // }
+  ]
 });
 
 openBtnMobile.addEventListener('click', openContactsPanel);
