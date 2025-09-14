@@ -13,7 +13,6 @@ const groupsPanel = document.querySelector('.groups-panel') as HTMLDivElement;
 const overlay = document.querySelector('.overlay') as HTMLDivElement;
 const groupsList = document.getElementById('groupsList') as HTMLUListElement;
 const addGroupBtn = document.getElementById('addGroupBtn') as HTMLButtonElement;
-const groupsPanelList = document.querySelector('.groups-panel__list') as HTMLUListElement;
 const saveGroupsBtn = document.querySelector('.groups-panel__save') as HTMLButtonElement;
 
 openGroupsPanelBtn.addEventListener('click', openGroupPanel);
@@ -99,7 +98,7 @@ function saveNewGroups(): void {
             return;
         } 
          if(groupManager.getGroups().some(g=>g.name === name)){
-            successToastShow(declite,"Группа с таким названием уже есть1.");
+            successToastShow(declite,"Группа с таким названием уже есть.");
             return;
         }
         const newGroup = new Group(name);
