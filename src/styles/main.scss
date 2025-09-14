@@ -1073,7 +1073,7 @@ p, h1, h2, h3, span {
 
 .required-phone{
   display: none;
-  background-color: transparent;
+  background-color: var(--color-white);
   color:var(--color-btn-hover-can);
   font-size: 14px;
   font-weight: 400;
