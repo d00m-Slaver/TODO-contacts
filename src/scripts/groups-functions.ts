@@ -1,8 +1,11 @@
+import successIMG from '../assets/images/success.png';
+import declite from '../assets/images/error.png';
 import trashIcon from '../assets/images/trash-can.png';
+import whiteTrashIcon from '../assets/images/trash-can-white.png'
 import { Group } from '../classes/Group';
 import { groupManager } from "../managers/GroupManager";
 import { showToast } from './toast';
-import { updatePanelMode } from './main-scripts';
+import { updatePanelMode, successToastShow} from './main-scripts';
 
 const openGroupsPanelBtn = document.querySelector('.header__groups-btn') as HTMLButtonElement;
 const closeGroupsPanelBtn = document.querySelector('.groups-panel__close') as HTMLButtonElement;
@@ -35,14 +38,9 @@ addGroupBtn.addEventListener('click', ()=>{
     if(emptyLi) emptyLi.remove();
     const li = document.createElement('li');
     li.innerHTML = `<input name="groupName" type="text" class="groups-input" placeholder="Введите название группы"/>
-        <button class="delete-btn" disabled><img src="${trashIcon}" alt="Удалить"/></button>`;
+        <button class="delete-btn"><img src="${trashIcon}" class="trash-can" alt="Удалить"/><img src="${whiteTrashIcon}" class="white-trash-can" alt="Удалить"/></button>`;
 
     const deleteBtn = li.querySelector('.delete-btn') as HTMLButtonElement;
-    const input = li.querySelector('.groups-input') as HTMLInputElement;
-
-    input.addEventListener('input', ()=>{
-        deleteBtn.disabled = input.value.trim() === '';
-    });
 
     deleteBtn.addEventListener('click',()=>{
         li.remove();
@@ -69,7 +67,7 @@ function renderGroupsPanel(): void{
     groups.forEach(group=>{
         const li = document.createElement('li');
         li.innerHTML=`<input name="groupName" type="text" class="groups-input" value="${group.name}" data-id="${group.id}"/>
-        <button class="delete-btn" disabled><img src="${trashIcon}" alt="Удалить"/></button>`;
+        <button class="delete-btn"><img src="${trashIcon}" class="trash-can" alt="Удалить"/><img src="${whiteTrashIcon}" class="white-trash-can" alt="Удалить"/></button>`;
 
         const deleteBtn = li.querySelector('.delete-btn') as HTMLButtonElement;
         const input = li.querySelector('.groups-input') as HTMLInputElement;
@@ -77,6 +75,7 @@ function renderGroupsPanel(): void{
         deleteBtn.addEventListener('click', ()=>{
             showToast("Удалить группу?","Удаление группы повлечет за собой удаление контактов связанных с этой группой", ()=>{
                 groupManager.removeGroup(group);
+                successToastShow(successIMG,"Группа успешно удалена.");
                 renderGroupsPanel();
             }, ()=>{
                 renderGroupsPanel();
@@ -95,12 +94,14 @@ function saveNewGroups(): void {
     const inputs = document.querySelectorAll('.groups-input') as NodeListOf<HTMLInputElement>;
     inputs.forEach(input => {
         const name = input.value.trim();
-        if(!name) return;
+        if(!name){return;} 
         if(groupManager.getGroups().some(g=>g.name === name)){
+            successToastShow(declite,"Группа с таким названием уже есть.");
             return;
         }
         const newGroup = new Group(name);
         groupManager.addGroup(newGroup);
+        successToastShow(successIMG,"Группа успешно создана.");
     })
     renderGroupsPanel();
 }
@@ -111,7 +112,15 @@ saveGroupsBtn.addEventListener('click',()=>{
         const id = li.dataset.id!;
         const name = input.value.trim();
         const group = new Group(name, id);
-        if(name) groupManager.updateGroup(group);
+         if(groupManager.getGroups().some(g=>g.name === name)){
+            successToastShow(declite,"Группа с таким названием уже есть.");
+            return;
+        }
+        if(name) {
+            groupManager.updateGroup(group);
+            successToastShow(successIMG,"Группа успешно отредактирована.");
+        }
+
     })
     renderGroupsPanel();
 });
