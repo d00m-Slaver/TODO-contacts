@@ -94,9 +94,12 @@ function saveNewGroups(): void {
     const inputs = document.querySelectorAll('.groups-input') as NodeListOf<HTMLInputElement>;
     inputs.forEach(input => {
         const name = input.value.trim();
-        if(!name){return;} 
-        if(groupManager.getGroups().some(g=>g.name === name)){
-            successToastShow(declite,"Группа с таким названием уже есть.");
+        if(!name){ 
+             successToastShow(declite,"Нельзя создать группу без названия.");
+            return;
+        } 
+         if(groupManager.getGroups().some(g=>g.name === name)){
+            successToastShow(declite,"Группа с таким названием уже есть1.");
             return;
         }
         const newGroup = new Group(name);
@@ -105,23 +108,3 @@ function saveNewGroups(): void {
     })
     renderGroupsPanel();
 }
-
-saveGroupsBtn.addEventListener('click',()=>{
-    groupsPanelList.querySelectorAll('li').forEach(li=>{
-        const input = li.querySelector('.groups-input') as HTMLInputElement;
-        const id = li.dataset.id!;
-        const name = input.value.trim();
-        const group = new Group(name, id);
-         if(groupManager.getGroups().some(g=>g.name === name)){
-            successToastShow(declite,"Группа с таким названием уже есть.");
-            return;
-        }
-        if(name) {
-            groupManager.updateGroup(group);
-            successToastShow(successIMG,"Группа успешно отредактирована.");
-        }
-
-    })
-    renderGroupsPanel();
-});
-
