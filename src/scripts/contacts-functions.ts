@@ -112,12 +112,17 @@ function saveContact() {
       inputPhone.style.borderColor = "#EA3D2F";
       errorElPhone.classList.add('error');
     }
-
+  
   if (!isContactNameUnique(inputName.value.trim())){
     successToastShow(declite, "Контакт с таким именем уже есть.");
     return;
   } 
   
+  if(!isContactPhoneUnique(inputPhone.value.trim())){
+    successToastShow(declite, "Контакт с таким номером уже есть.");
+    return;
+  }
+
   if(!inputName.value.trim() || !inputPhone.value.trim() || !selectedGroupId) return;
 
   const group = groupManager.getGroups().find(g => g.id === selectedGroupId);
@@ -172,7 +177,7 @@ window.addEventListener('resize', () => {
   }
 });
 
-function isContactNameUnique(name:string, excludeId = null) {
+function isContactNameUnique(name:string, excludeId: string | null = null) {
     const groups = groupManager.getGroups();
     const lowerCaseName = name.trim().toLowerCase();
     
@@ -180,10 +185,31 @@ function isContactNameUnique(name:string, excludeId = null) {
         if (group.contacts && group.contacts.length > 0) {
             const duplicate = group.contacts.find(contact => {
                 if (excludeId && contact.id === excludeId) return false;
-                
                 return contact.name.trim().toLowerCase() === lowerCaseName;
             });
-            
+
+            if (duplicate) {
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
+function isContactPhoneUnique(phone: string, excludeId: string | null = null): boolean {
+    const groups = groupManager.getGroups();
+    const cleanPhone = phone.trim().replace(/\s/g, '');
+    
+    for (const group of groups) {
+        if (group.contacts && group.contacts.length > 0) {
+            const duplicate = group.contacts.find(contact => {
+                if (excludeId && contact.id === excludeId) return false;
+                
+                const contactCleanPhone = contact.phone.trim().replace(/\s/g, '');
+                return contactCleanPhone === cleanPhone;
+            });
+
             if (duplicate) {
                 return false;
             }

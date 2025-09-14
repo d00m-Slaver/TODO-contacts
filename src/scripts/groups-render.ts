@@ -1,5 +1,4 @@
 import successIMG from '../assets/images/success.png';
-import declite from '../assets/images/error.png';
 import { groupManager } from "../managers/GroupManager";
 import { Contact } from "../classes/Contact";
 import { openEditContactPanel } from "./contacts-functions";

@@ -1,6 +1,5 @@
 const contactPanel = document.querySelector('.contacts-panel') as HTMLDivElement;
 const groupsPanel = document.querySelector('.groups-panel') as HTMLDivElement;
-const successToast = document.querySelector('.success-toats') as HTMLDivElement;
 
 export function updatePanelMode() {
   if(window.innerWidth>=768){
