@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TODO Contacts</title>
-    <script type="module" crossorigin src="./assets/index-Ck4qpMLC.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CqN_q0yA.css">
+    <script type="module" crossorigin src="./assets/index-DusWfrDj.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-o_VmaWFK.css">
   </head>
   <body>
 
@@ -43,6 +43,7 @@
           <h3>Группы контактов</h3>
           <button class="groups-panel__close"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg=="/></button>
         </div>
+        <p class="dash-line"></p>
         <ul class="groups-panel__list" id="groupsList"></ul>
         <div class="groups-panel__actions">
           <button class="groups-panel__add" id="addGroupBtn">Добавить</button>
@@ -52,17 +53,19 @@
       <div class="contacts-panel">
         <div class="contacts-panel__header">
           <h3>Добавить контакт</h3>
-          <button class="contacts-panel__close">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/>
-          </button>
+          <button class="contacts-panel__close"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/></button>
         </div>
+        <p class="dash-line"></p>
         <div class="contacts-panel__form">
           <input type="text" class="contact-input contact-input--name" placeholder="Имя" required />
+          <span class="required-name">Поле является обязательным.</span>
           <input type="text" class="contact-input contact-input--phone" placeholder="Телефон" required/>
+          <span class="required-phone">Поле является обязательным.</span>
           <div class="contact-select">
             <button class="contact-select__toggle">
               <span>Выберите группу</span>
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAQCAYAAADj5tSrAAAAAXNSR0IArs4c6QAAAJJJREFUOBG109sNgCAMBdA7iiO4iSPoJrqJIzqCph/XAKYpbZGfhlcPhALUba674d6k7dwB3ABWbUHnuBz0AnC26wkIkoEIMM8LyQQHy+i9UQsw18IbbUlIAw4CjFGoG4hCbsALhYFeKA1YkDym/ANWD+PnkZnIiloxMDFjGOABLCgNWNAwQIOGAy30G0BIytfVHvTud91DBRTDAAAAAElFTkSuQmCC" alt="▼" />
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAANVJREFUaAXtlMENwyAMRT1Cjx2hx47QETpOjh099eFLKBEihggZ6XFxhAL+7yEwY2AAAxjAAAYwgAEMYAADGOgz8Oxbdlr1OM1MmPj8e/zM7D3YyyVsZvYd3Ce0XOEdYARC4bXPFAhvqoZljZ7EMbz2eoVUdv7sYdWwrFchauH9ZKeNXogU4WUpCpEqfBQiZfirEKnDtyD8Yvo7X152/556YRWyVWt3YonwgmtBpDSv8Ko1iCXC1yCWCn+EWDK8IPwJZWAAAxjAAAYwgAEMYAADGLjdwA4vRTwpcs+V6wAAAABJRU5ErkJggg==" class="img-arrow" alt="▼" />
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAANRJREFUaAXtlMENwyAMRT1Cjh2hx4yQETpOjx29+PAlFBHRhsQy0uMCSgR+/yXGjIEBDGAAAxjAAAYwgAEMYOAeA497jo05dStlPma2xpS7torgPcB0IfbwU4U4gp8iRA8+dYgW/NvMWs/T9UQL0uF1hfotJPv1nOJ26sHrbksZ4lf4lCH+hU8V4ix8ihDPQlE3oq/rhhVkbz7qCTV+b//Q+1fZrRBn4FV8H8K/bNjwECPwAlWIUHgVX7QYnEN+m0FGtmMAAxjAAAYwgAEMYAADCQ18AcujPCnexBCNAAAAAElFTkSuQmCC" class="img-arrow-alt" alt="▲" />
             </button>
             <ul class="contact-select__list"></ul>
           </div>
@@ -74,15 +77,22 @@
       <div id="toast-overlay" class="toast-overlay">
         <div class="toast-box">
           <button class="toast-close"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAOFJREFUSA3FltENgzAMRLNIZ+gi7D8PurQHpiLO2bGoJRSI7fcC4SOtnfFurb3Ox7I7MMG+BCa271UpBYvcQ2plTFZIrYzcLr1LoGBFOmVOCy4b4D/ILLnQ8YUZ4QYjT/dmGjM9Zq2fH4Z/lh0B/o1lGYEKSKkhTxo9oJeT4KOiEdh+at6jtiQUaZmMK/ak5TJIHxV6sr/sX5l09GaY93Lc99CoAJUaSRoBRWpv5RlApqfL042ZPV2R8VPJDLmQZGecsqYFDnyUcpmPHxOxSivF6qrCvmk/k1owJiplZIN5yHaIPlENZzImZwAAAABJRU5ErkJggg==" alt="Закрыть"/></button>
-          <h3 class="toast-title"></h3>
-          <p class="toast-message"></p>
-          <div class="toast-actions">
-            <button class="toast-btn toast-yes">Да</button>
-            <button class="toast-btn toast-no">Нет</button> 
+          <div class="toast-info">
+            <h3 class="toast-title"></h3>
+            <p class="toast-message"></p>
+            <div class="toast-actions">
+              <button class="toast-btn toast-yes">Да</button>
+              <button class="toast-btn toast-no">Нет</button> 
+            </div>
           </div>
         </div>
       </div>
 
       <div class="overlay"></div>
+
+      <div class="success-toats">
+        <img class="success-img" src="" alt="Успешно">
+        <div class="success-text"></div>
+      </div>
   </body>
 </html>
